@@ -1,0 +1,140 @@
+<!--
+--活动选位与登记--
+Copyright (C) 2024  Lucky Logistics.& Qingzhu 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>停车位预定 - Lucky Logistics October Convoy</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+  }
+  .container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  #questionnaire, #image-carousel {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+  }
+  #questionnaire:hover, #image-carousel:hover {
+    transform: translateY(-5px);
+  }
+  #questionnaire {
+    width: 40%;
+    margin-right: 20px;
+  }
+  #image-carousel {
+    width: 60%;
+    position: relative; /* Add this to position the copyright absolutely */
+  }
+  #image-carousel .copyright {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #333;
+    font-size: 0.8em;
+  }
+  h2 {
+    color: #333;
+  }
+  .carousel-images img {
+    width: 100%;
+    display: none;
+    border-radius: 4px;
+  }
+  .carousel-images img.active {
+    display: block;
+  }
+  .carousel-buttons button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+  }
+  .carousel-buttons button:hover {
+    background-color: #0056b3;
+  }
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    #questionnaire, #image-carousel {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div id="questionnaire">
+    <h2>Parking space registration</h2>
+    <iframe width="640px" height="480px" src=" " frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe><!--推荐使用微软问卷--!>
+  </div>
+
+  <div id="image-carousel">
+    <h2>Parking space display</h2>
+    <div class="carousel-images">
+      <img src="img1.png" alt="Image 1" class="active">
+      <img src="img2.png" alt="Image 2">
+      <img src="img3.png" alt="Image 3">
+      <!-- Add more images as needed -->
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="showImage(-1)">Previous</button>
+      <button onclick="showImage(1)">Next</button>
+    </div>
+    <div class="copyright">
+      &copy; 2024 Lucky Logistics.& Qingzhu All rights reserved. | 
+      <a href="https://github.com/icannqingzhu/Display-and-selection-page" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentImageIndex = 0;
+  const images = document.querySelectorAll('.carousel-images img');
+  const totalImages = images.length;
+
+  function showImage(step) {
+    currentImageIndex += step;
+    if (currentImageIndex >= totalImages) {
+      currentImageIndex = 0;
+    } else if (currentImageIndex < 0) {
+      currentImageIndex = totalImages - 1;
+    }
+    images.forEach(img => img.classList.remove('active'));
+    images[currentImageIndex].classList.add('active');
+  }
+</script>
+
+</body>
+</html>
